@@ -1,5 +1,5 @@
 
-// file: design_1_clk_wiz_0_0.v
+// file: design_1_clk_wiz_0.v
 // 
 // (c) Copyright 2008 - 2013 Xilinx, Inc. All rights reserved.
 // 
@@ -65,7 +65,7 @@
 
 `timescale 1ps/1ps
 
-module design_1_clk_wiz_0_0_clk_wiz 
+module design_1_clk_wiz_0_clk_wiz 
 
  (// Clock in ports
   // Clock out ports
@@ -77,10 +77,10 @@ module design_1_clk_wiz_0_0_clk_wiz
  );
   // Input buffering
   //------------------------------------
-wire clk_in1_design_1_clk_wiz_0_0;
-wire clk_in2_design_1_clk_wiz_0_0;
+wire clk_in1_design_1_clk_wiz_0;
+wire clk_in2_design_1_clk_wiz_0;
   IBUF clkin1_ibufg
-   (.O (clk_in1_design_1_clk_wiz_0_0),
+   (.O (clk_in1_design_1_clk_wiz_0),
     .I (clk_in1));
 
 
@@ -93,20 +93,20 @@ wire clk_in2_design_1_clk_wiz_0_0;
   //    * Unused inputs are tied off
   //    * Unused outputs are labeled unused
 
-  wire        clk_out1_design_1_clk_wiz_0_0;
-  wire        clk_out2_design_1_clk_wiz_0_0;
-  wire        clk_out3_design_1_clk_wiz_0_0;
-  wire        clk_out4_design_1_clk_wiz_0_0;
-  wire        clk_out5_design_1_clk_wiz_0_0;
-  wire        clk_out6_design_1_clk_wiz_0_0;
-  wire        clk_out7_design_1_clk_wiz_0_0;
+  wire        clk_out1_design_1_clk_wiz_0;
+  wire        clk_out2_design_1_clk_wiz_0;
+  wire        clk_out3_design_1_clk_wiz_0;
+  wire        clk_out4_design_1_clk_wiz_0;
+  wire        clk_out5_design_1_clk_wiz_0;
+  wire        clk_out6_design_1_clk_wiz_0;
+  wire        clk_out7_design_1_clk_wiz_0;
 
   wire [15:0] do_unused;
   wire        drdy_unused;
   wire        psdone_unused;
   wire        locked_int;
-  wire        clkfbout_design_1_clk_wiz_0_0;
-  wire        clkfbout_buf_design_1_clk_wiz_0_0;
+  wire        clkfbout_design_1_clk_wiz_0;
+  wire        clkfbout_buf_design_1_clk_wiz_0;
   wire        clkfboutb_unused;
     wire clkout0b_unused;
    wire clkout1_unused;
@@ -139,9 +139,9 @@ wire clk_in2_design_1_clk_wiz_0_0;
   mmcm_adv_inst
     // Output clocks
    (
-    .CLKFBOUT            (clkfbout_design_1_clk_wiz_0_0),
+    .CLKFBOUT            (clkfbout_design_1_clk_wiz_0),
     .CLKFBOUTB           (clkfboutb_unused),
-    .CLKOUT0             (clk_out1_design_1_clk_wiz_0_0),
+    .CLKOUT0             (clk_out1_design_1_clk_wiz_0),
     .CLKOUT0B            (clkout0b_unused),
     .CLKOUT1             (clkout1_unused),
     .CLKOUT1B            (clkout1b_unused),
@@ -153,8 +153,8 @@ wire clk_in2_design_1_clk_wiz_0_0;
     .CLKOUT5             (clkout5_unused),
     .CLKOUT6             (clkout6_unused),
      // Input clock control
-    .CLKFBIN             (clkfbout_buf_design_1_clk_wiz_0_0),
-    .CLKIN1              (clk_in1_design_1_clk_wiz_0_0),
+    .CLKFBIN             (clkfbout_buf_design_1_clk_wiz_0),
+    .CLKIN1              (clk_in1_design_1_clk_wiz_0),
     .CLKIN2              (1'b0),
      // Tied to always select the primary input clock
     .CLKINSEL            (1'b1),
@@ -186,8 +186,8 @@ wire clk_in2_design_1_clk_wiz_0_0;
   //-----------------------------------
 
   BUFG clkf_buf
-   (.O (clkfbout_buf_design_1_clk_wiz_0_0),
-    .I (clkfbout_design_1_clk_wiz_0_0));
+   (.O (clkfbout_buf_design_1_clk_wiz_0),
+    .I (clkfbout_design_1_clk_wiz_0));
 
 
 
@@ -196,7 +196,7 @@ wire clk_in2_design_1_clk_wiz_0_0;
 
   BUFG clkout1_buf
    (.O   (clk_out1),
-    .I   (clk_out1_design_1_clk_wiz_0_0));
+    .I   (clk_out1_design_1_clk_wiz_0));
 
 
 

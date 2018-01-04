@@ -37,8 +37,8 @@ end ws2811_sim;
 architecture behave of ws2811_sim is
 
     constant c_CLOCK_PERIOD : time := 50 ns; 
-    signal r_CLOCK     : std_logic := '0';
-    signal w_DOUT      : std_logic;
+    signal r_CLOCK          : std_logic := '0';
+    signal w_DOUT           : std_logic;
   
   component ws2811_drv is 
     port (
@@ -46,10 +46,8 @@ architecture behave of ws2811_sim is
         o_dout         : out std_logic);
     end component ws2811_drv;
 
-     
 
 begin   
-
     UUT: ws2811_drv
     port map (
         i_clk => r_CLOCK,
@@ -64,7 +62,7 @@ begin
   
     process  -- main
     begin
-     wait for 0.1 sec;
+     wait for 0.5 sec;
     end process;
 
 end behave;

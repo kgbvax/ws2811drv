@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Wed Jan  3 19:05:25 2018
-# Process ID: 11994
+# Start of session at: Thu Jan  4 15:21:44 2018
+# Process ID: 47839
 # Current directory: /home/io/ws2811drv/ldtv.runs/synth_1
 # Command line: vivado -log ws2811_drv.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ws2811_drv.tcl
 # Log file: /home/io/ws2811drv/ldtv.runs/synth_1/ws2811_drv.vds
@@ -15,19 +15,17 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 12002 
+INFO: Helper process launched with PID 47854 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1266.230 ; gain = 84.992 ; free physical = 2113 ; free virtual = 9455
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1266.238 ; gain = 84.992 ; free physical = 275 ; free virtual = 6462
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'ws2811_drv' [/home/io/ws2811drv/out.vhdl:27]
-WARNING: [Synth 8-3848] Net o_dout in module/entity ws2811_drv does not have driver. [/home/io/ws2811drv/out.vhdl:24]
-INFO: [Synth 8-256] done synthesizing module 'ws2811_drv' (1#1) [/home/io/ws2811drv/out.vhdl:27]
-WARNING: [Synth 8-3330] design ws2811_drv has an empty top module
-WARNING: [Synth 8-3331] design ws2811_drv has unconnected port o_dout
-WARNING: [Synth 8-3331] design ws2811_drv has unconnected port i_clk
-WARNING: [Synth 8-3331] design ws2811_drv has unconnected port i_load
+INFO: [Synth 8-638] synthesizing module 'ws2811_drv' [/home/io/ws2811drv/out.vhdl:26]
+INFO: [Synth 8-226] default block is never used [/home/io/ws2811drv/out.vhdl:63]
+WARNING: [Synth 8-614] signal 'dout' is read in the process but is not in the sensitivity list [/home/io/ws2811drv/out.vhdl:61]
+WARNING: [Synth 8-614] signal 'tx_ticks' is read in the process but is not in the sensitivity list [/home/io/ws2811drv/out.vhdl:61]
+INFO: [Synth 8-256] done synthesizing module 'ws2811_drv' (1#1) [/home/io/ws2811drv/out.vhdl:26]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1307.762 ; gain = 126.523 ; free physical = 2123 ; free virtual = 9465
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1307.770 ; gain = 126.523 ; free physical = 286 ; free virtual = 6475
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -37,7 +35,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1307.762 ; gain = 126.523 ; free physical = 2122 ; free virtual = 9465
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1307.770 ; gain = 126.523 ; free physical = 287 ; free virtual = 6476
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -51,25 +49,26 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1532.129 ; gain = 0.000 ; free physical = 1868 ; free virtual = 9211
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1586.145 ; gain = 0.000 ; free physical = 129 ; free virtual = 6251
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 1532.129 ; gain = 350.891 ; free physical = 1939 ; free virtual = 9281
+Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1586.145 ; gain = 404.898 ; free physical = 164 ; free virtual = 6286
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 1532.129 ; gain = 350.891 ; free physical = 1939 ; free virtual = 9281
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1586.145 ; gain = 404.898 ; free physical = 164 ; free virtual = 6286
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 1532.129 ; gain = 350.891 ; free physical = 1941 ; free virtual = 9283
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1586.145 ; gain = 404.898 ; free physical = 166 ; free virtual = 6288
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element tx_ticks_reg was removed.  [/home/io/ws2811drv/out.vhdl:51]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 1532.129 ; gain = 350.891 ; free physical = 1940 ; free virtual = 9282
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1586.145 ; gain = 404.898 ; free physical = 158 ; free virtual = 6280
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -81,6 +80,14 @@ Report RTL Partitions:
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -88,6 +95,16 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module ws2811_drv 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -103,12 +120,9 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3330] design ws2811_drv has an empty top module
-WARNING: [Synth 8-3331] design ws2811_drv has unconnected port o_dout
-WARNING: [Synth 8-3331] design ws2811_drv has unconnected port i_clk
-WARNING: [Synth 8-3331] design ws2811_drv has unconnected port i_load
+WARNING: [Synth 8-6014] Unused sequential element tx_ticks_reg was removed.  [/home/io/ws2811drv/out.vhdl:51]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 1532.129 ; gain = 350.891 ; free physical = 1939 ; free virtual = 9282
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1586.145 ; gain = 404.898 ; free physical = 147 ; free virtual = 6271
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -120,13 +134,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 1580.129 ; gain = 398.891 ; free physical = 1822 ; free virtual = 9164
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:40 . Memory (MB): peak = 1598.145 ; gain = 416.898 ; free physical = 114 ; free virtual = 6182
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 1580.129 ; gain = 398.891 ; free physical = 1822 ; free virtual = 9164
+Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:40 . Memory (MB): peak = 1598.145 ; gain = 416.898 ; free physical = 114 ; free virtual = 6182
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -138,7 +152,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 1589.145 ; gain = 407.906 ; free physical = 1821 ; free virtual = 9164
+Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:40 . Memory (MB): peak = 1617.176 ; gain = 435.930 ; free physical = 141 ; free virtual = 6181
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -162,7 +176,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1589.145 ; gain = 407.906 ; free physical = 1820 ; free virtual = 9163
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:41 . Memory (MB): peak = 1617.176 ; gain = 435.930 ; free physical = 141 ; free virtual = 6181
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -175,7 +189,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1589.145 ; gain = 407.906 ; free physical = 1820 ; free virtual = 9163
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:41 . Memory (MB): peak = 1617.176 ; gain = 435.930 ; free physical = 141 ; free virtual = 6181
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -187,25 +201,39 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1589.145 ; gain = 407.906 ; free physical = 1820 ; free virtual = 9163
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:41 . Memory (MB): peak = 1617.176 ; gain = 435.930 ; free physical = 141 ; free virtual = 6182
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1589.145 ; gain = 407.906 ; free physical = 1820 ; free virtual = 9163
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:41 . Memory (MB): peak = 1617.176 ; gain = 435.930 ; free physical = 141 ; free virtual = 6182
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1589.145 ; gain = 407.906 ; free physical = 1820 ; free virtual = 9163
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:41 . Memory (MB): peak = 1617.176 ; gain = 435.930 ; free physical = 141 ; free virtual = 6182
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1589.145 ; gain = 407.906 ; free physical = 1820 ; free virtual = 9163
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:41 . Memory (MB): peak = 1617.176 ; gain = 435.930 ; free physical = 141 ; free virtual = 6182
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+----------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+----------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|ws2811_drv  | dout_reg | 9      | 1     | NO           | NO                 | YES               | 1      | 0       | 
++------------+----------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -218,35 +246,47 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |OBUFT |     1|
-+------+------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |LUT1   |     1|
+|3     |LUT2   |     1|
+|4     |LUT3   |     1|
+|5     |LUT4   |     1|
+|6     |LUT5   |     2|
+|7     |LUT6   |     1|
+|8     |SRL16E |     1|
+|9     |FDRE   |     6|
+|10    |IBUF   |     1|
+|11    |OBUF   |     1|
++------+-------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |     1|
+|1     |top      |       |    17|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1589.145 ; gain = 407.906 ; free physical = 1820 ; free virtual = 9163
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:41 . Memory (MB): peak = 1617.176 ; gain = 435.930 ; free physical = 141 ; free virtual = 6182
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1589.145 ; gain = 183.539 ; free physical = 1875 ; free virtual = 9218
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:39 . Memory (MB): peak = 1589.152 ; gain = 407.906 ; free physical = 1875 ; free virtual = 9218
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 1617.176 ; gain = 157.555 ; free physical = 195 ; free virtual = 6235
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:41 . Memory (MB): peak = 1617.184 ; gain = 435.930 ; free physical = 195 ; free virtual = 6236
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-11 Infos, 9 Warnings, 0 Critical Warnings and 0 Errors encountered.
+14 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:41 . Memory (MB): peak = 1595.145 ; gain = 427.285 ; free physical = 1859 ; free virtual = 9201
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:43 . Memory (MB): peak = 1617.184 ; gain = 449.316 ; free physical = 179 ; free virtual = 6232
 INFO: [Common 17-1381] The checkpoint '/home/io/ws2811drv/ldtv.runs/synth_1/ws2811_drv.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file ws2811_drv_utilization_synth.rpt -pb ws2811_drv_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.11 . Memory (MB): peak = 1595.145 ; gain = 0.000 ; free physical = 1859 ; free virtual = 9201
-INFO: [Common 17-206] Exiting Vivado at Wed Jan  3 19:06:17 2018...
+report_utilization: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.14 . Memory (MB): peak = 1641.188 ; gain = 0.000 ; free physical = 173 ; free virtual = 6232
+INFO: [Common 17-206] Exiting Vivado at Thu Jan  4 15:22:39 2018...

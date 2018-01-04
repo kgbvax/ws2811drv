@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1515035124">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1515108102">
   <File Type="VDS-TIMING-PB" Name="ws2811_drv_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="ws2811_drv_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="ws2811_drv.dcp"/>
@@ -42,14 +42,8 @@
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/CMOD_A7.xdc">
-      <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-      </FileInfo>
-    </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/constraints.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
