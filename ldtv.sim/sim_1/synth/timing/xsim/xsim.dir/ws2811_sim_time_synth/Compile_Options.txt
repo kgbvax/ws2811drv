@@ -1,0 +1,1 @@
+-wto "64578d4e00b14b86959cce3c7d30316a" --incr --debug "typical" --relax --mt "8" --maxdelay -L "xil_defaultlib" -L "simprims_ver" -L "secureip" --snapshot "ws2811_sim_time_synth" -transport_int_delays -pulse_r "0" -pulse_int_r "0" -pulse_e "0" -pulse_int_e "0" "xil_defaultlib.ws2811_sim" "xil_defaultlib.glbl" -log "elaborate.log" 

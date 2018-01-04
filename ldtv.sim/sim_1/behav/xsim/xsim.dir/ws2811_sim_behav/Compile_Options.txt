@@ -1,0 +1,1 @@
+-wto "64578d4e00b14b86959cce3c7d30316a" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" -L "xpm" --snapshot "ws2811_sim_behav" "xil_defaultlib.ws2811_sim" -log "elaborate.log" 

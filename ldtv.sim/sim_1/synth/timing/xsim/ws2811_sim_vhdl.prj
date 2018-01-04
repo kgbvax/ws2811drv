@@ -1,0 +1,6 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../ldtv.srcs/sim_1/new/ws2811_sim.vhd" \
+
+# Do not sort compile order
+nosort
