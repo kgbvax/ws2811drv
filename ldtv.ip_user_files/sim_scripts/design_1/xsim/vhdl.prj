@@ -1,5 +1,7 @@
 vhdl xil_defaultlib  \
 "../../../bd/design_1/ip/design_1_ws2811_drv_0_0_1/sim/design_1_ws2811_drv_0_0.vhd" \
 "../../../bd/design_1/sim/design_1.vhd" \
+"../../../bd/design_1/ip/design_1_bitreg_0_2/sim/design_1_bitreg_0_2.vhd" \
+"../../../bd/design_1/ip/design_1_uart_mock_0_0/sim/design_1_uart_mock_0_0.vhd" \
 
 nosort

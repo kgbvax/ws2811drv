@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# ws2811_drv
+# bitreg, uart_mock, ws2811_drv
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -165,6 +165,8 @@ proc create_root_design { parentCell } {
   # Create interface ports
 
   # Create ports
+  set LED1 [ create_bd_port -dir O -type data LED1 ]
+  set o_dout [ create_bd_port -dir O -type data o_dout ]
   set reset [ create_bd_port -dir I -type rst reset ]
   set_property -dict [ list \
    CONFIG.POLARITY {ACTIVE_HIGH} \
@@ -175,14 +177,93 @@ proc create_root_design { parentCell } {
    CONFIG.PHASE {0.000} \
  ] $sys_clock
 
+  # Create instance: bitreg_0, and set properties
+  set block_name bitreg
+  set block_cell_name bitreg_0
+  if { [catch {set bitreg_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $bitreg_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: clk_wiz, and set properties
   set clk_wiz [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:5.4 clk_wiz ]
   set_property -dict [ list \
+   CONFIG.CLKOUT1_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT1_JITTER {544.175} \
+   CONFIG.CLKOUT1_PHASE_ERROR {622.384} \
+   CONFIG.CLKOUT2_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT3_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT4_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT5_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT6_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT7_DRIVES {BUFGCE} \
    CONFIG.CLK_IN1_BOARD_INTERFACE {sys_clock} \
+   CONFIG.CLK_IN2_BOARD_INTERFACE {Custom} \
+   CONFIG.ENABLE_CLOCK_MONITOR {false} \
+   CONFIG.FEEDBACK_SOURCE {FDBK_AUTO} \
+   CONFIG.JITTER_SEL {No_Jitter} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {53.125} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {6.375} \
+   CONFIG.MMCM_CLKOUT0_DUTY_CYCLE {0.5} \
+   CONFIG.MMCM_COMPENSATION {ZHOLD} \
+   CONFIG.MMCM_DIVCLK_DIVIDE {1} \
+   CONFIG.OVERRIDE_MMCM {false} \
+   CONFIG.PRIMITIVE {MMCM} \
    CONFIG.RESET_BOARD_INTERFACE {reset} \
    CONFIG.USE_BOARD_FLOW {true} \
+   CONFIG.USE_CLKFB_STOPPED {false} \
+   CONFIG.USE_INCLK_STOPPED {false} \
+   CONFIG.USE_LOCKED {true} \
+   CONFIG.USE_MIN_POWER {true} \
+   CONFIG.USE_SAFE_CLOCK_STARTUP {true} \
  ] $clk_wiz
 
+  # Create instance: fifo_generator_0, and set properties
+  set fifo_generator_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:fifo_generator:13.2 fifo_generator_0 ]
+  set_property -dict [ list \
+   CONFIG.Almost_Full_Flag {false} \
+   CONFIG.Data_Count {false} \
+   CONFIG.Data_Count_Width {14} \
+   CONFIG.Empty_Threshold_Assert_Value_rach {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wach {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wrch {1022} \
+   CONFIG.Enable_Safety_Circuit {false} \
+   CONFIG.FIFO_Implementation_rach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_wach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_wrch {Common_Clock_Distributed_RAM} \
+   CONFIG.Full_Flags_Reset_Value {0} \
+   CONFIG.Full_Threshold_Assert_Value {16382} \
+   CONFIG.Full_Threshold_Assert_Value_rach {1023} \
+   CONFIG.Full_Threshold_Assert_Value_wach {1023} \
+   CONFIG.Full_Threshold_Assert_Value_wrch {1023} \
+   CONFIG.Full_Threshold_Negate_Value {16381} \
+   CONFIG.INTERFACE_TYPE {Native} \
+   CONFIG.Input_Data_Width {8} \
+   CONFIG.Input_Depth {16384} \
+   CONFIG.Output_Data_Width {8} \
+   CONFIG.Output_Depth {16384} \
+   CONFIG.Read_Data_Count_Width {14} \
+   CONFIG.Reset_Type {Synchronous_Reset} \
+   CONFIG.Underflow_Flag {true} \
+   CONFIG.Valid_Flag {false} \
+   CONFIG.Write_Acknowledge_Flag {false} \
+   CONFIG.Write_Data_Count_Width {14} \
+ ] $fifo_generator_0
+
+  # Create instance: uart_mock_0, and set properties
+  set block_name uart_mock
+  set block_cell_name uart_mock_0
+  if { [catch {set uart_mock_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $uart_mock_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: ws2811_drv_0, and set properties
   set block_name ws2811_drv
   set block_cell_name ws2811_drv_0
@@ -195,9 +276,17 @@ proc create_root_design { parentCell } {
    }
   
   # Create port connections
-  connect_bd_net -net clk_wiz_clk_out1 [get_bd_pins clk_wiz/clk_out1] [get_bd_pins ws2811_drv_0/i_clk]
+  connect_bd_net -net bitreg_0_bval [get_bd_pins bitreg_0/bval] [get_bd_pins ws2811_drv_0/i_ser_d8a]
+  connect_bd_net -net bitreg_0_data_rd_en [get_bd_pins bitreg_0/data_rd_en] [get_bd_pins fifo_generator_0/rd_en]
+  connect_bd_net -net clk_wiz_clk_out1 [get_bd_pins bitreg_0/i_clk] [get_bd_pins clk_wiz/clk_out1] [get_bd_pins fifo_generator_0/clk] [get_bd_pins uart_mock_0/i_clk] [get_bd_pins ws2811_drv_0/i_clk]
+  connect_bd_net -net fifo_generator_0_dout [get_bd_pins bitreg_0/data] [get_bd_pins fifo_generator_0/dout]
+  connect_bd_net -net fifo_generator_0_full [get_bd_pins fifo_generator_0/full] [get_bd_pins uart_mock_0/i_fifo_full]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins clk_wiz/reset]
   connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz/clk_in1]
+  connect_bd_net -net uart_mock_0_o_RX_Byte [get_bd_pins fifo_generator_0/din] [get_bd_pins uart_mock_0/o_RX_Byte]
+  connect_bd_net -net uart_mock_0_o_RX_DV [get_bd_pins fifo_generator_0/wr_en] [get_bd_pins uart_mock_0/o_RX_DV]
+  connect_bd_net -net ws2811_drv_0_o_dout [get_bd_ports LED1] [get_bd_ports o_dout] [get_bd_pins ws2811_drv_0/o_dout]
+  connect_bd_net -net ws2811_drv_0_o_ser_re [get_bd_pins bitreg_0/i_next] [get_bd_pins ws2811_drv_0/o_ser_next]
 
   # Create address segments
 

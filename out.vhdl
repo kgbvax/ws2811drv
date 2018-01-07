@@ -18,7 +18,9 @@ use IEEE.std_logic_unsigned.all;
 entity ws2811_drv is 
 port (
     i_clk      	: in  std_logic;
-  --  i_load      : in  std_logic;
+  --  i_load    : in  std_logic;
+    i_ser_d8a   : in unsigned (7 downto 0);
+    o_ser_re    : out std_logic := '1';
     o_dout		: out std_logic);
 end ws2811_drv;
 

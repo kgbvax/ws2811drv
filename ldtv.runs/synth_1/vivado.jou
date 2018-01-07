@@ -2,11 +2,11 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Jan  4 15:21:44 2018
-# Process ID: 47839
+# Start of session at: Fri Jan  5 16:36:26 2018
+# Process ID: 14802
 # Current directory: /home/io/ws2811drv/ldtv.runs/synth_1
-# Command line: vivado -log ws2811_drv.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ws2811_drv.tcl
-# Log file: /home/io/ws2811drv/ldtv.runs/synth_1/ws2811_drv.vds
+# Command line: vivado -log UART_RX.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source UART_RX.tcl
+# Log file: /home/io/ws2811drv/ldtv.runs/synth_1/UART_RX.vds
 # Journal file: /home/io/ws2811drv/ldtv.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
-source ws2811_drv.tcl -notrace
+source UART_RX.tcl -notrace
